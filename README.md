@@ -20,6 +20,12 @@ hash with:
 Get-FileHash .\alu-logo.png -Algorithm SHA256
 ```
 
+The supplied logo has this SHA-256 hash:
+
+```text
+13598CE30186D34BA5A05A1975FACBC89084D6014F41604BA60AC261F83939C3
+```
+
 The deployment script calculates the same hash directly from the file and
 stores it on-chain.
 
