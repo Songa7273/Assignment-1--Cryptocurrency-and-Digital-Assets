@@ -33,8 +33,18 @@ async function main() {
   const token = await Token.deploy(deployer.address);
   await token.waitForDeployment();
 
-  console.log(`ALUAssetRegistry deployed to: ${await registry.getAddress()}`);
-  console.log(`ALULogoToken deployed to: ${await token.getAddress()}`);
+  const deployment = {
+    registryAddress: await registry.getAddress(),
+    tokenAddress: await token.getAddress(),
+    network: { chainId: "0x7a69", name: "Hardhat Local" }
+  };
+  fs.writeFileSync(
+    path.join(__dirname, "..", "frontend", "deployment.json"),
+    `${JSON.stringify(deployment, null, 2)}\n`
+  );
+
+  console.log(`ALUAssetRegistry deployed to: ${deployment.registryAddress}`);
+  console.log(`ALULogoToken deployed to: ${deployment.tokenAddress}`);
   console.log(`Registered logo SHA-256: ${contentHash}`);
 }
 
