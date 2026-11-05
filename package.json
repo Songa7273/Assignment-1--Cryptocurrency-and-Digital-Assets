@@ -6,14 +6,20 @@
   "scripts": {
     "compile": "hardhat compile",
     "test": "hardhat test",
-    "deploy": "hardhat run scripts/deploy.js --network localhost"
+    "deploy": "hardhat run scripts/deploy.js --network localhost",
+    "frontend": "vite --config frontend/vite.config.js --host 127.0.0.1",
+    "build:frontend": "vite build --config frontend/vite.config.js"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^6.1.2",
-    "hardhat": "^2.22.19"
+    "hardhat": "^2.22.19",
+    "vite": "^6.1.0"
   },
   "dependencies": {
     "@openzeppelin/contracts": "5.0.2",
-    "dotenv": "^18.0.9"
+    "dotenv": "^18.0.9",
+    "ethers": "^6.13.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }
